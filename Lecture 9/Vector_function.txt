@@ -1,0 +1,7 @@
+Vector Function: 
+    1. size [variable.size()]
+    2. push_back (add in last) []
+    3. pop_back (delete from last)
+    4. front (first value)
+    5. back (last value)
+    6. at (fixed position value access)
