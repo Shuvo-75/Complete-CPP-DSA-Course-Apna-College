@@ -27,7 +27,8 @@ using namespace std;
     }
 */
 
-int majorityElement(vector<int> &nums)
+// optimize solution where complexity O(nlogn)
+/* int majorityElement(vector<int> &nums)
 {
     int n = nums.size();
     int target = n / 2; 
@@ -54,7 +55,45 @@ int majorityElement(vector<int> &nums)
 
     }
     return -1;
+} */
+
+// moore's voting algorithm 
+int majorityElement(vector<int> &nums)
+{
+    int n = nums.size();
+    int target = n / 2; 
+    int freq = 0, ans = 0; 
+    for(int i = 0; i < n; i++)
+    {
+        if(freq == 0)
+        {
+            ans = nums[i];
+        }
+        if(ans == nums[i])
+        {
+            freq++;
+        }else
+        {
+            freq--;
+        }
+    }
+    int count = 0; 
+    for(int val : nums)
+    {
+        if(val == ans)
+        {
+            count++;
+        }
+    }
+
+    if(count > target)
+    {
+        return ans;
+    }
+    return -1;
 }
+
+
 int main()
 {
     vector<int> nums = {1, 2, 2, 1, 1};
